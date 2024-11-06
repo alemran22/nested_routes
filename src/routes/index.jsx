@@ -2,9 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Products from "../pages/Products";
-import Contact from "../pages/contact";
+
 import Root from "../Root/root";
 import SingleProduct from "../pages/SingleProduct";
+import ContactUs from "../pages/ContactUs";
 
 const routers = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ const routers = createBrowserRouter([
       },
       {
         path: "contact",
-        element: <Contact />,
+        element: <ContactUs />,
       },
       {
         path: "single-product/:productID",
