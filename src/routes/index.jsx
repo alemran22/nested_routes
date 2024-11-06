@@ -3,7 +3,7 @@ import Home from "../pages/Home";
 import About from "../pages/About";
 import Products from "../pages/Products";
 
-import Root from "../Root/root";
+import Root from "../Root/Root";
 import SingleProduct from "../pages/SingleProduct";
 import ContactUs from "../pages/ContactUs";
 
