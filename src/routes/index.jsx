@@ -4,6 +4,7 @@ import About from "../pages/About";
 import Products from "../pages/Products";
 import Contact from "../pages/contact";
 import Root from "../Root/root";
+import SingleProduct from "../pages/SingleProduct";
 
 const routers = createBrowserRouter([
   {
@@ -25,6 +26,15 @@ const routers = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+      {
+        path: "single-product/:productID",
+        element: <SingleProduct />,
+        loader: ({ params }) => {
+          return fetch(
+            `https://fakestoreapi.com/products/${params.productID}`
+          ).then((res) => res.json());
+        },
       },
     ],
   },

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const [productData, setProductData] = useState([]);
@@ -44,7 +45,12 @@ const Products = () => {
                 <h2 className="card-title">{title}</h2>
                 <p>{description.slice(0, 60)}</p>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
+                  <Link
+                    to={`/single-product/${id}`}
+                    className="btn btn-primary w-full"
+                  >
+                    Details
+                  </Link>
                 </div>
               </div>
             </div>
