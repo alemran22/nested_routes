@@ -1,8 +1,10 @@
-import React from "react";
+import { useContext } from "react";
 import navdata from "../../../constant/navbar.constant";
 import { NavLink } from "react-router-dom";
+import { ProductContext } from "../../../context/ProductContext";
 
 const Navbar = () => {
+  const { cardProducts } = useContext(ProductContext);
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -54,9 +56,20 @@ const Navbar = () => {
             <NavLink
               to={link}
               key={id}
-              className={"btn btn-md btn-success ml-6"}
+              className={"btn btn-md btn-success ml-6 relative"}
             >
               {title}
+              {title === "Cart" ? (
+                cardProducts.length < 1 ? (
+                  ""
+                ) : (
+                  <span className="absolute -top-2 -right-2 p-1 px-2 bg-yellow-500 text-red-600 rounded-full font-bold">
+                    {cardProducts.length}
+                  </span>
+                )
+              ) : (
+                ""
+              )}
             </NavLink>
           ))}
         </ul>
