@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext";
 
 const Cart = () => {
-  const { cardProducts } = useContext(ProductContext);
-  console.log(cardProducts);
+  const { cardProducts, removeProduct } = useContext(ProductContext);
+
   return (
     <div className="overflow-x-auto">
       <table className="table">
@@ -48,7 +48,12 @@ const Cart = () => {
               <td>{product.description.slice(0, 50)}</td>
               <td>${product.price}</td>
               <th>
-                <button className="btn btn-ghost btn-xs">Details</button>
+                <button
+                  onClick={() => removeProduct(product.id)}
+                  className="btn btn-warning btn-xs"
+                >
+                  Remove
+                </button>
               </th>
             </tr>
           ))}

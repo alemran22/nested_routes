@@ -11,7 +11,12 @@ const ProductContextProvider = ({ children }) => {
     setCardProducts([...cardProducts, product]);
   };
 
-  const productValue = { cardProducts, addProduct };
+  //remove product
+  const removeProduct = (id) => {
+    const filterProduct = cardProducts.filter((product) => product.id !== id);
+    setCardProducts(filterProduct);
+  };
+  const productValue = { cardProducts, addProduct, removeProduct };
   return (
     <ProductContext.Provider value={productValue}>
       {children}
